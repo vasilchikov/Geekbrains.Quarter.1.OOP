@@ -1,38 +1,35 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection.Emit;
 
 namespace Snake
 {
     class Program
     {
         static void Main(string[] args)
-		{
-            int x = 1;
-            Func1(x);
-            Console.WriteLine("Call Func1. x = " + x);
+        {
+            List<int> numList = new List<int>();
+            numList.Add(4);
+            numList.Add(3);
+            numList.Add(7);
 
-            x = 1;
-            Func2(x);
-            Console.WriteLine("Call Func2. x = " + x);
-
-            x = 1;
-            Func3(x);
-            Console.WriteLine("Call Func3. x = " + x);
-
+            int x = numList[0];
+            int y = numList[1];
+            int z = numList[2];
+            foreach (int i in numList)
+            {
+                Console.WriteLine(i);
+            }
+            numList.RemoveAt(2);
             Point p1 = new Point(1, 3, '*');
-            Move(p1, 10, 10);
-            Console.WriteLine("Call Move. p1.x = " + p1.x + ", p1.y = " + p1.y);
-
-            Point p2 = new Point(4, 5, '#');
-            p1 = p2;
-            p2.x = 8;
-            p2.y = 8;
-            Console.WriteLine("p1 = p2. p1.x = " + p1.x + ", p1.y = " + p1.y + "; p2.x = " + p2.x + ", p2.y = " + p2.y);
-
-            p1 = new Point(1, 3, '*');
-            Update(p1);
-            Console.WriteLine("Call Move. p1.x = " + p1.x + ", p1.y = " + p1.y);
-
-            Console.ReadLine();
+            Point p2 = new Point(3,11,'#');
+            List<Point> points = new List<Point> {p1, p2};
+            foreach (Point point in points)
+            {
+                Console.WriteLine(point.x);
+                Console.WriteLine(point.y);
+                Console.WriteLine(point.sym);
+            }
         }
 
         public static void Func1(int value)
