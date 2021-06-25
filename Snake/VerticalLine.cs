@@ -9,9 +9,9 @@ namespace Snake
     {
         private List<Point> pList = new List<Point>();
 
-        public VerticalLine(int yUp, int yDown, int x, char sym)
+        public VerticalLine(int yLeft, int yRight, int x, char sym)
         {
-            for (int y = yUp; y <= yDown; y++)
+            for (int y = yLeft; y <= yRight; y++)
             {
                 Point p = new Point(x, y, sym);
                 pList.Add(p);
